@@ -2,13 +2,14 @@ import React from 'react'
 import {AddIcon, EditIcon } from '@chakra-ui/icons'
 import { Flex, 
     Image, Select,Box, Input,
-     Text, Divider,Button,IconButton, Container
+     Text, Divider,Button,IconButton, Footer
 } from "@chakra-ui/react"
 import Logo from '../../assets/logo.svg'
 import Background from '../../assets/Background infos.svg'
-import { BiDollarCircle } from 'react-icons/bi';
+import { BiDollarCircle, BiEdit } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
 import BackgroundButton from '../../assets/Background card.svg'
+import { FiTrash } from 'react-icons/fi';
 
 
 
@@ -19,7 +20,7 @@ export const Home = () => {
         <Flex
             bg='#E5E5E5'
             flexDirection='column'
-            //justifyContent='space-between'
+            justifyContent='space-between'
             minHeight='100vh'
             
             >
@@ -91,6 +92,7 @@ export const Home = () => {
                     <Image
                     src={Background}
                     alt='Imagem de fundo'
+                    position='relative'
                     
                     
                     >
@@ -101,6 +103,9 @@ export const Home = () => {
 
                 <Flex
                     justifyContent='space-around'
+                    position='absolute'
+                    paddingTop='50px'
+                    
                     
                     
                     
@@ -110,10 +115,12 @@ export const Home = () => {
                         width='360px'
                         height='160px'
                         bg='#fff'
+                        opacity='85%'
                         borderRadius='32px'
                         justifyContent='center'
-                        paddingLeft='16px'
-                        justifyContent='flex-start'>
+                        marginRight='16px'
+                        justifyContent='flex-start'
+                        paddingX='2'>
                         
                             
                         <Flex
@@ -156,8 +163,10 @@ export const Home = () => {
                         bg='#fff'
                         borderRadius='32px'
                         justifyContent='center'
-                        paddingLeft='16px'
+                        marginLeft='16px'
                         justifyContent='flex-start'
+                        paddingX='2'
+                        opacity='85%'
                         
                         >   
                             
@@ -260,6 +269,7 @@ export const Home = () => {
                 borderRadius='32px'
                 bg='#FBFAFA'
                 position='relative'
+                flexDirection='column'
                 >
                 
 
@@ -269,11 +279,16 @@ export const Home = () => {
                         
                             
                             <Image
-                        marginBottom='200px'
-                        position='absolute'
-                        src={BackgroundButton}
-                        alt='Background Card'
-                        position='relative'
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
                 
                     >
                             </Image>    
@@ -288,37 +303,1227 @@ export const Home = () => {
                                 position='absolute'
                                 marginRight='180px'
                                 marginBottom='230px'
+                                marginTop='20px'
+                                
 
                                 
 
                         >
 
                             </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'>
+
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
                             
 
+                
+                    >
+                            </Image>    
 
                         
-                    
-                    
-                    
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
 
-                      
+                                
 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        >
 
-                    
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+
+                </Button>
+
+
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'>
+
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+
                 </Button>
             
             
             
             </Flex>
+
+
+            <Divider
+            height='1px'
+            bg='#111111'
+            marginTop='100px'
+            width='1080px'
+            borderRadius='30px'
+            alignSelf='center'></Divider>
+
+            <Flex>
+                <Text
+                fontWeight='700'
+                fontSize='36px'
+                fontFamily='Poppins'
+                marginX='100px'
+                marginTop='48px'
+                ><b>Legumes <IconButton aria-label='Editar Legumes ' icon={<EditIcon/>} marginX='2' variant='ghost' size='5%'/></b></Text>
+            </Flex>
+
+            <Flex
+            width='1080px'
+            height='380px'
+            justifyContent='space-between'
+            flexDirection='row'
+            marginX='100px'>
+                
+                
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+            </Flex>
+
+
+            <Divider
+            height='1px'
+            bg='#111111'
+            marginTop='100px'
+            width='1080px'
+            borderRadius='30px'
+            alignSelf='center'></Divider>
+
+
+            <Flex>
+                <Text
+                fontWeight='700'
+                fontSize='36px'
+                fontFamily='Poppins'
+                marginX='100px'
+                marginTop='48px'
+                ><b>Frutas <IconButton aria-label='Editar Frutas ' icon={<EditIcon/>} marginX='2' variant='ghost' size='5%'/></b></Text>
+            </Flex>
+
+            <Flex
+            width='1080px'
+            height='380px'
+            justifyContent='space-between'
+            flexDirection='row'
+            marginX='100px'>
+                
+                
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+                <Button
+                width='340px'
+                height='380px'
+                borderRadius='32px'
+                bg='#FBFAFA'
+                position='relative'
+                flexDirection='column'
+                >
+                
+
+                    
+                    
+                        
+                        
+                            
+                            <Image
+                            marginBottom='180px'
+                            position='absolute'
+                            src={BackgroundButton}
+                            alt='Background Card'
+                            position='relative'
+                            marginLeft='10px'
+                            //paddingTop='20px'
+                            
+                            
+
+                
+                    >
+                            </Image>    
+
+                        
+                            
+                            <Image
+                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
+                                 width='100px'
+                                height='100px'
+                                borderRadius='100px'
+                                position='absolute'
+                                marginRight='180px'
+                                marginBottom='230px'
+                                marginTop='20px'
+                                
+
+                                
+
+                        >
+
+                            </Image>
+
+                            <Text
+                            position='absolute'
+                            justifyContent='center'
+                            paddingBottom='200px'
+                            paddingLeft='50px'
+                            fontFamily='Poppins'
+                            fontSize='32px'
+                            fontWeight='700'
+                            color='#fff'><b>Alface</b></Text>
+
+
+                           
+                            
+                                <Flex
+                                position='absolute'
+                                flexDirection='column'
+                                paddingTop='40px'
+                                fontFamily='Poppins'
+                                
+                                
+
+                                >
+                                    <Text
+                                    
+                                    
+                                    >Título</Text>
+
+                                   
+                                         
+                                    <Text
+                                    paddingX='15px'
+                                    isTruncated
+                                    maxWidth='340px'
+                                    display='block'
+                                    flexWrap='wrap'
+                                    
+                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
+                                    </Text>
+
+
+                                    
+                                
+                                </Flex>
+
+                                    
+                                <Flex
+                                fontFamily='Poppins'
+                                >
+                                    <FiTrash
+                                    color='#DB4444'
+                                    size='40px'
+                                    marginRight='50px'
+                                    
+                                    />
+
+                                    <BiEdit
+                                    bg='gray'
+                                    size='40px'></BiEdit>
+
+
+                                    <Text
+                                    paddingLeft='40px'
+                                    paddingTop='6px'>Média R$ </Text>
+                                    <Text
+                                    paddingLeft='2px'
+                                    color='green'
+                                    fontWeight='700'
+                                    fontSize='30px'
+                                
+                                   
+                                    ><b>1,99</b></Text>
+                                    <Text
+                                    paddingLeft='6px'
+                                    paddingTop='6px'>unid.</Text>
+
+                                </Flex>
+                            
+                
+
+                    
+                </Button>
+
+
+            </Flex>
+
+
+            <Divider
+            height='1px'
+            bg='#111111'
+            marginTop='100px'
+            width='1080px'
+            borderRadius='30px'
+            alignSelf='center'></Divider>
+
+            <Box marginY='4'>
+            <Text textAlign='center' fontSize='15px' color='gray'>
+            Copyright © 2021 Feito com ❤ por Kazap Tecnologia - Todos os direitos reservados
+            </Text>
+            </Box>
+
+
+
+
+                
 
                     
                     

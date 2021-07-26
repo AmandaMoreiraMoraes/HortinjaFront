@@ -1,5 +1,5 @@
 import React from 'react'
-import {AddIcon, EditIcon } from '@chakra-ui/icons'
+import {AddIcon, EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import { Flex, 
     Image, Select,Box, Input,
      Text, Divider,Button,IconButton, Footer
@@ -362,16 +362,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -488,16 +494,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -612,16 +624,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -773,16 +791,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -906,16 +930,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -1039,16 +1069,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -1202,16 +1238,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                   <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -1336,16 +1378,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                  <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text
@@ -1468,16 +1516,22 @@ export const Home = () => {
                                 <Flex
                                 fontFamily='Poppins'
                                 >
-                                    <FiTrash
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<DeleteIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
                                     color='#DB4444'
-                                    size='40px'
-                                    marginRight='50px'
-                                    
                                     />
 
-                                    <BiEdit
-                                    bg='gray'
-                                    size='40px'></BiEdit>
+                                    <IconButton
+                                    aria-label='Edit Hortaliça'
+                                    icon={<EditIcon/>}
+                                    marginX='2'
+                                    variant='ghost'
+                                    fontSize='30px'
+                                    />
 
 
                                     <Text

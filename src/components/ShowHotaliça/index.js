@@ -100,6 +100,7 @@ import BackgroundButton from '../../assets/Background card.svg'
                                     maxWidth='340px'
                                     display='block'
                                     flexWrap='wrap'
+                                    position='absolute'
                                     
                                     >{props.description}
                                     </Text>

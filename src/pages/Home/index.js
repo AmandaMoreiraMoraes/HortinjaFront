@@ -18,6 +18,28 @@ import { ShowHortaliça } from '../../components'
 
 
 export const Home = () => {
+
+
+    const showHortaliça = [
+        {
+          shade: 'Roxa',
+          categoryId:'Legumes',
+          name: 'Beterraba',
+          avaragePrice:'6,00',
+            measuement:'g',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat tincidunt orci sit amet hendrerit. Donec a efficitur felis, non semper tellus. Proin vitae elit nec magna sollicitudin commodo ut at leo. Pellentesque scelerisque mi eu elit porttitor hendrerit. ',
+          image: 'https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+        },
+        {
+            shade: 'Verde',
+            categoryId:'Verduras',
+            name: 'Acelga',
+            avaragePrice:'8,00',
+            measurement:'g',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat tincidunt orci sit amet hendrerit. Donec a efficitur felis, non semper tellus. Proin vitae elit nec magna sollicitudin commodo ut at leo. Pellentesque scelerisque mi eu elit porttitor hendrerit. ',
+          image: 'https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+        },
+      ]
     return (
 
         
@@ -254,11 +276,14 @@ export const Home = () => {
             </Flex>
 
             <Box>
-                <Category name='Legume' _id=''/>
+                <Category name='Legumes' />
             </Box>
 
             <Flex>
-                <ShowHortaliça name='Cenoura' shade='Laranja' image='https://images.unsplash.com/photo-1445282768818-728615cc910a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlf
+                <ShowHortaliça 
+                name='Cenoura' 
+                shade='Laranja' 
+                image='https://images.unsplash.com/photo-1445282768818-728615cc910a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlf
                 Hx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80' 
                 avaragePrice='5,00'
                  measurement='kg'

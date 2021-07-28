@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState}from 'react'
 import { Modal, ModalContent, ModalOverlay,
-     ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text, Box} from '@chakra-ui/react'
+     ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text,
+    FormControl, FormLabel, Input, Box} from '@chakra-ui/react'
 import BackgroundModal from '../../../assets/Background modal.svg'
 
 
 
 const CategoryModal = (props) => {
+
+    const [name, setName] = useState('')
+    
+    const handleSubmit = () => {
+
+    }
+
     return(
 
         <Modal
@@ -38,6 +46,9 @@ const CategoryModal = (props) => {
                     fontSize='24px'
                     paddingX='100px'
                     paddingY='60px'><b>Nova Categoria</b></Text>
+
+
+                   
                         
                     </Flex>
 
@@ -47,6 +58,8 @@ const CategoryModal = (props) => {
                     </ModalHeader>
 
                 <ModalCloseButton/>
+
+                <form onSubmit={handleSubmit}>
 
 
                 <ModalBody>
@@ -85,6 +98,8 @@ const CategoryModal = (props) => {
 
 
                 </ModalFooter>
+
+                </form>
 
 
 

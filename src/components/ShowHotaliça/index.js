@@ -7,6 +7,8 @@ import BackgroundButton from '../../assets/Background card.svg'
     
     const ShowHortaliça = (props) => {
 
+        
+
         return (
     
     <>
@@ -142,7 +144,7 @@ import BackgroundButton from '../../assets/Background card.svg'
                                     fontSize='30px'
                                 
                                    
-                                    ><b>{props.avaragePrice}</b></Text>
+                                    ><b>{props.averagePrice}</b></Text>
                                     <Text
                                     paddingLeft='6px'
                                     paddingTop='6px'>{props.measurement}</Text>

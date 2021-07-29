@@ -6,14 +6,25 @@ const Category = (props) => {
 
     return(
 
-        <Flex>
+        <Flex
+
+        
+        >
                 <Text
                 fontWeight='700'
                 fontSize='36px'
                 fontFamily='Poppins'
-                marginX='100px'
-                ><b>{props.name} <IconButton aria-label='Editar Verduras ' icon={<EditIcon/>} marginX='2'
-                 variant='ghost' size='5%' onClick={() => console.log('Editar Categoria')}/></b></Text>
+                marginLeft='100px'
+                
+                
+                
+                ><b>{props.name} </b> </Text>
+
+
+                <IconButton aria-label='Editar Categoria ' icon={<EditIcon/>} marginX='2'
+                 variant='ghost' fontSize='35px' onClick={() => console.log('Editar Categoria')}/>
+
+                 
             </Flex>
 
 

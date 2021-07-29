@@ -13,13 +13,63 @@ import { FiTrash } from 'react-icons/fi';
 import CategoryModal from './CategoryModal'
 import { Category } from '../../components'
 import { ShowHortaliça } from '../../components'
+import HorticulturalModal from './HorticulturalModal'
+import DeleteModal from './DeleteModal'
 
 
 
 
 export const Home = () => {
 
+    const categories = [
+        {
+            _id: '1',
+            name: 'Frutas'
+
+        },
+        {
+            _id: '2',
+            name:'Verduras '
+        }
+        
+
+    ]
+
+
+    const showHortaliças = [
+        {
+            _id: '1',
+            name: 'Cenoura',
+            measurement:'kg',
+            shade: 'laranja',
+            averagePrice:'9,00',
+            description:'É uma cenoura',
+            image:'https://images.unsplash.com/photo-1445282768818-728615cc910a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+            categoryId: 'Legume'
+
+        }
+    ]
+
+
+
+
+
     const [categoryModal, setCategoryModal] = useState(false)
+
+    const [horticulturalModal, setHorticulturalModal] = useState(false)
+
+    const [deleteModal, setDeleteModal] = useState(false)
+
+    const [selectedCard, setSelectedCard] = useState(null)
+
+    const handleOpenDeleteModal = (id) => {
+        setSelectedCard(id)
+        setDeleteModal(true)
+    }
+
+   
+
+
 
 
    
@@ -238,7 +288,7 @@ export const Home = () => {
             marginRight='16px'
             borderRadius='100px'
             fontFamily='Poppins'
-            onClick={() => console.log('Adicionar Hortaliça')}><IconButton
+            onClick={() => {setHorticulturalModal(true)}}><IconButton
             aria-label='Adicionar Hortaliça'
             icon={<AddIcon/>}
             marginX='2'
@@ -261,430 +311,65 @@ export const Home = () => {
             </Flex>
 
             
-
+        
             <Flex
-            >
-
-
-                <Text
-                fontWeight='700'
-                fontSize='36px'
-                fontFamily='Poppins'
-                marginX='100px'
-                ><b>Verduras <IconButton aria-label='Editar Verduras ' icon={<EditIcon/>} marginX='2'
-                 variant='ghost' size='5%' onClick={() => console.log('Editar Categoria')}/></b></Text>
-            </Flex>
-
-            <Flex
-            width='1080px'
-            height='380px'
-            justifyContent='space-between'
-            flexDirection='row'
-            marginX='100px'>
-                
-                
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
                 flexDirection='column'
-                onClick={() => console.log('Show hortaliça')}
+                
+                
+                
                 >
-                
 
+                {categories.map(category =>{
+
+                    return(
+                        
+                    <Category
+                    name={category.name}
                     
                     
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
                     >
-                            </Image>    
 
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
 
-                                
 
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar Hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
+                    </Category>
+                    )
 
                     
-                </Button>
+                }
+        
+            )}
 
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('Show Hortaliça')}>
-
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
+                <Flex
                 
-                    >
-                            </Image>    
+                >
 
+
+                    {showHortaliças.map(showHortaliça =>{
+
+                    return(
                         
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
+                    <ShowHortaliça
+                    id={showHortaliça._id}
+                    name={showHortaliça.name}
+                    shade={showHortaliça.shade}
+                    description={showHortaliça.description}
+                    measurement={showHortaliça.measurement}
+                    averagePrice={showHortaliça.averagePrice}
+                    image={showHortaliça.image}
+                    categoryId={showHortaliça.categoryId}
+                    openDeleteModal={()=> handleOpenDeleteModal(showHortaliça._id)}
+                    openEditModal={() => console.log('editar')}
+                    />
+                    )
 
-                                
 
-                        >
+                    }
 
-                            </Image>
+                    )}
 
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
+                    </Flex>
 
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Deletar Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar Hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-
-                </Button>
-
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}>
-
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-
-                </Button>
-            
-            
-            
-            </Flex>
-
-            <Divider
+                    <Divider
             height='1px'
             bg='#111111'
             marginTop='100px'
@@ -692,888 +377,23 @@ export const Home = () => {
             borderRadius='30px'
             alignSelf='center'></Divider>
 
-            <Flex>
-                <Text
-                fontWeight='700'
-                fontSize='36px'
-                fontFamily='Poppins'
-                marginX='100px'
-                marginTop='48px'
-                ><b>Legumes <IconButton aria-label='Editar Legumes ' icon={<EditIcon/>} marginX='2'
-                 variant='ghost' size='5%' onClick={() => console.log('Editar Categoria')}/></b></Text>
-            </Flex>
-
-            <Flex
-            width='1080px'
-            height='380px'
-            justifyContent='space-between'
-            flexDirection='row'
-            marginX='100px'>
-                
-                
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}
-                >
-                
-
                     
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
+               </Flex>
+                   
+                   
                 
-                    >
-                            </Image>    
+              
 
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
 
-                                
 
-                        >
 
-                            </Image>
 
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
 
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
+          
 
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
+            
 
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}
-                >
-                
-
-                    
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}
-                >
-                
-
-                    
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-
-            </Flex>
-
-            <Divider
-            height='1px'
-            bg='#111111'
-            marginTop='100px'
-            width='1080px'
-            borderRadius='30px'
-            alignSelf='center'></Divider>
-
-            <Flex>
-                <Text
-                fontWeight='700'
-                fontSize='36px'
-                fontFamily='Poppins'
-                marginX='100px'
-                marginTop='48px'
-                ><b>Frutas <IconButton aria-label='Editar Frutas ' icon={<EditIcon/>} marginX='2'
-                 variant='ghost' size='5%' onClick={() => console.log('Editar categoria')}/></b></Text>
-            </Flex>
-
-            <Flex
-            width='1080px'
-            height='380px'
-            justifyContent='space-between'
-            flexDirection='row'
-            marginX='100px'>
-                
-                
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('Show Hortaliça')}
-                >
-                
-
-                    
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                   <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}
-                >
-                
-
-                    
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                  <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-                <Button
-                width='340px'
-                height='380px'
-                borderRadius='32px'
-                bg='#FBFAFA'
-                position='relative'
-                flexDirection='column'
-                onClick={() => console.log('show hortaliça')}
-                >
-                
-
-                    
-                    
-                        
-                        
-                            
-                            <Image
-                            marginBottom='180px'
-                            position='absolute'
-                            src={BackgroundButton}
-                            alt='Background Card'
-                            position='relative'
-                            marginLeft='10px'
-                            //paddingTop='20px'
-                            
-                            
-
-                
-                    >
-                            </Image>    
-
-                        
-                            
-                            <Image
-                                src='https://images.unsplash.com/photo-1604335310236-0ca3d4e4afcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80'
-                                 width='100px'
-                                height='100px'
-                                borderRadius='100px'
-                                position='absolute'
-                                marginRight='180px'
-                                marginBottom='230px'
-                                marginTop='20px'
-                                
-
-                                
-
-                        >
-
-                            </Image>
-
-                            <Text
-                            position='absolute'
-                            justifyContent='center'
-                            paddingBottom='200px'
-                            paddingLeft='50px'
-                            fontFamily='Poppins'
-                            fontSize='32px'
-                            fontWeight='700'
-                            color='#fff'><b>Alface</b></Text>
-
-                           
-                            
-                                <Flex
-                                position='absolute'
-                                flexDirection='column'
-                                paddingTop='40px'
-                                fontFamily='Poppins'
-                                
-                                
-
-                                >
-                                    <Text
-                                    
-                                    
-                                    >Título</Text>
-
-                                   
-                                         
-                                    <Text
-                                    paddingX='15px'
-                                    isTruncated
-                                    maxWidth='340px'
-                                    display='block'
-                                    flexWrap='wrap'
-                                    
-                                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a type specimen book. It ha
-                                    </Text>
-
-                                    
-                                
-                                </Flex>
-
-                                    
-                                <Flex
-                                fontFamily='Poppins'
-                                >
-                                    <IconButton
-                                    aria-label='Delete Hortaliça'
-                                    icon={<DeleteIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    color='#DB4444'
-                                    onClick={() => console.log('Deletar Hortaliça')}
-                                    />
-
-                                    <IconButton
-                                    aria-label='Edit Hortaliça'
-                                    icon={<EditIcon/>}
-                                    marginX='2'
-                                    variant='ghost'
-                                    fontSize='30px'
-                                    onClick={() => console.log('Editar hortaliça')}
-                                    />
-
-                                    <Text
-                                    paddingLeft='40px'
-                                    paddingTop='6px'>Média R$ </Text>
-                                    <Text
-                                    paddingLeft='2px'
-                                    color='green'
-                                    fontWeight='700'
-                                    fontSize='30px'
-                                
-                                   
-                                    ><b>1,99</b></Text>
-                                    <Text
-                                    paddingLeft='6px'
-                                    paddingTop='6px'>unid.</Text>
-
-                                </Flex>
-                            
-                
-
-                    
-                </Button>
-
-            </Flex>
+         
 
             <Divider
             height='1px'
@@ -1604,7 +424,17 @@ export const Home = () => {
         onClose={() => {setCategoryModal(false)}}/>
 
         
+        <HorticulturalModal
+        isOpen={horticulturalModal}
+        onClose={() => {setHorticulturalModal(false)}}
+        />
 
+        <DeleteModal
+        isOpen={deleteModal}
+        onClose={() => {setDeleteModal(false)}}
+        cardId={selectedCard}
+        
+        />
         
         </>
                 

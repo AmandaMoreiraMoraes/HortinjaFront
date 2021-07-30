@@ -30,6 +30,35 @@ const HorticulturalModal = (props) => {
 
         e.preventDefault()
 
+        setLoading(true)
+        api.post('/horticultural', {
+            name
+        })
+        .then(() => {
+
+            props.loadHorticultural()
+
+        })
+        .catch((err) => {
+            console.log(err)
+
+        })
+        .finally(() => closeModal())
+
+    }
+
+    const cleanFields = () => {
+        setName = ('')
+    }
+
+    const closeModal = () => {
+        cleanFields()
+        props.onClose()
+        setLoading(false)
+    }
+
+    const [loading, setLoading] = useState(false)
+
     }
 
     if (props.cardId){

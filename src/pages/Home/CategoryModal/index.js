@@ -1,4 +1,4 @@
-import React, {useState}from 'react'
+import React, {useState, useEffect}from 'react'
 import { Modal, ModalContent, ModalOverlay,
      ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text,
     FormControl, FormLabel, Input, Box} from '@chakra-ui/react'
@@ -10,12 +10,41 @@ import api from '../../../services/api'
 const CategoryModal = (props) => {
 
     const [name, setName] = useState('')
+
     
     const handleSubmit = (e) => {
 
         e.preventDefault()
+        setLoading(true)
+        api.post('/category', {
+            name
+        })
+        .then(() => {
+
+            props.loadCategory()
+
+        })
+        .catch((err) => {
+            console.log(err)
+
+        })
+        .finally(() => closeModal())
 
     }
+
+    const cleanFields = () => {
+        setName = ('')
+    }
+
+    const closeModal = () => {
+        cleanFields()
+        props.onClose()
+        setLoading(false)
+    }
+
+    const [loading, setLoading] = useState(false)
+
+   
 
     return(
 
@@ -85,7 +114,8 @@ const CategoryModal = (props) => {
 
                 <ModalCloseButton/>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}
+                >
 
 
                 <ModalBody>
@@ -136,6 +166,7 @@ const CategoryModal = (props) => {
                     fontFamily='Poppins'
                     fontWeight='700'
                     marginTop='20px'
+                    isLoading={loading}
                     ><b>Salvar</b></Button>
 
 

@@ -59,6 +59,11 @@ export const Home = () => {
 
     const [loading, setLoading] = useState(false)
 
+    const [name, setName] = useState([])
+
+    
+   
+
     const loadCategory = () =>{
 
         setLoading(true)
@@ -105,6 +110,17 @@ export const Home = () => {
 
     }, [])
 
+    useEffect(() => {
+
+        const loadCategories = async () => {
+        const response = await api.get('/category')
+        setName(response.data)
+
+        loadCategories()
+        }
+
+    }, [])
+
    
     return (
 
@@ -148,7 +164,20 @@ export const Home = () => {
                     placeholder='Selecionar Categoria'
                     
                     
-                    ></Select>
+                    
+                    >
+
+                        {name.map(category => {
+                            <option
+                            key={category?._id}
+                            value={category?._id}>
+
+                                {`${category?.name}`}
+
+                            </option>
+                        })}
+                        
+                    </Select>
                     
                 
                     <Input
@@ -507,7 +536,8 @@ export const Home = () => {
         
         <CategoryModal
         isOpen={categoryModal}
-        onClose={() => {setCategoryModal(false)}}/>
+        onClose={() => {setCategoryModal(false)}}
+        loadCategory={loadCategory}/>
 
         
         <HorticulturalModal

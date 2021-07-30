@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {AddIcon, EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import { Flex, 
     Image, Select,Box, Input,
-     Text, Divider,Button,IconButton, 
+     Text, Divider,Button,IconButton,Spinner 
 } from "@chakra-ui/react"
 import Logo from '../../assets/logo.svg'
 import Background from '../../assets/Background infos.svg'
@@ -15,41 +15,14 @@ import { Category } from '../../components'
 import { ShowHortaliça } from '../../components'
 import HorticulturalModal from './HorticulturalModal'
 import DeleteModal from './DeleteModal'
+import api from '../../services/api'
 
 
 
 
 export const Home = () => {
 
-    const categories = [
-        {
-            _id: '1',
-            name: 'Frutas'
-
-        },
-        {
-            _id: '2',
-            name:'Verduras '
-        }
-        
-
-    ]
-
-
-    const showHortaliças = [
-        {
-            _id: '1',
-            name: 'Cenoura',
-            measurement:'kg',
-            shade: 'laranja',
-            averagePrice:'9,00',
-            description:'É uma cenoura',
-            image:'https://images.unsplash.com/photo-1445282768818-728615cc910a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
-            categoryId: 'Legume'
-
-        }
-    ]
-
+   
 
 
 
@@ -67,10 +40,63 @@ export const Home = () => {
         setDeleteModal(true)
     }
 
-   
+    const handleOpenEditModal = (id) => {
+        setSelectedCard(id)
+        setHorticulturalModal(true)
+    }
 
 
+    const [showHortaliças, setShowHortaliças] = useState([])
 
+    const [categories, setCategories] = useState([])
+
+    const [loading, setLoading] = useState(false)
+
+    const loadCategory = () =>{
+
+        setLoading(true)
+
+        api.get('/category')
+        .then(res => {
+            setCategories(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
+    }
+
+    const loadHortaliça = () => {
+
+        setLoading(true)
+
+        api.get('/horticultural')
+        .then(res => {
+            setShowHortaliças(res.data)
+        
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
+    }
+
+    useEffect(() => {
+        loadCategory()
+    }, [])
+
+
+    useEffect(() => {
+
+        loadHortaliça()
+
+    }, [])
 
    
     return (
@@ -311,6 +337,11 @@ export const Home = () => {
             </Flex>
 
             
+      
+            
+
+
+            
         
             <Flex
                 flexDirection='column'
@@ -319,12 +350,13 @@ export const Home = () => {
                 
                 >
 
+
                 {categories.map(category =>{
 
                     return(
                         
                     <Category
-                    name={category.name}
+                    name={category?.name}
                     
                     
                     >
@@ -349,16 +381,16 @@ export const Home = () => {
                     return(
                         
                     <ShowHortaliça
-                    id={showHortaliça._id}
-                    name={showHortaliça.name}
-                    shade={showHortaliça.shade}
-                    description={showHortaliça.description}
-                    measurement={showHortaliça.measurement}
-                    averagePrice={showHortaliça.averagePrice}
-                    image={showHortaliça.image}
-                    categoryId={showHortaliça.categoryId}
-                    openDeleteModal={()=> handleOpenDeleteModal(showHortaliça._id)}
-                    openEditModal={() => console.log('editar')}
+                    id={showHortaliça?._id}
+                    name={showHortaliça?.name}
+                    shade={showHortaliça?.shade}
+                    description={showHortaliça?.description}
+                    measurement={showHortaliça?.measurement}
+                    averagePrice={showHortaliça?.averagePrice}
+                    image={showHortaliça?.image}
+                    categoryId={showHortaliça?.categoryId}
+                    openDeleteModal={()=> handleOpenDeleteModal(showHortaliça?._id)}
+                    openEditModal={() => handleOpenEditModal(showHortaliça?._id)}
                     />
                     )
 
@@ -379,6 +411,8 @@ export const Home = () => {
 
                     
                </Flex>
+
+              
                    
                    
                 
@@ -426,12 +460,16 @@ export const Home = () => {
         
         <HorticulturalModal
         isOpen={horticulturalModal}
-        onClose={() => {setHorticulturalModal(false)}}
+        onClose={() => {setHorticulturalModal(false)
+        setSelectedCard(null)}}
+        cardId={selectedCard}
         />
 
         <DeleteModal
         isOpen={deleteModal}
-        onClose={() => {setDeleteModal(false)}}
+        onClose={() => 
+            {setDeleteModal(false)
+            setSelectedCard(null)                     }}
         cardId={selectedCard}
         
         />

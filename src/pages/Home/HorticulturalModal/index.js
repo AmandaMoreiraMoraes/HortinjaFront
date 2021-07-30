@@ -32,6 +32,12 @@ const HorticulturalModal = (props) => {
 
     }
 
+    if (props.cardId){
+
+    }else{
+
+    }
+
     return(
 
         <Modal
@@ -68,7 +74,7 @@ const HorticulturalModal = (props) => {
                     fontWeight='700'
                     fontSize='24px'
                     paddingX='100px'
-                    paddingY='60px'><b>Nova Hortaliça</b></Text>
+                    paddingY='60px'><b> {props.cardId ? 'Editar Hortaliça' : 'Nova Hortaliça'}</b></Text>
 
                         <Box
                         width='385px'

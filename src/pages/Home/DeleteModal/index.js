@@ -10,7 +10,7 @@ import {WarningIcon} from '@chakra-ui/icons'
 const DeleteModal = (props) => {
 
     const confirmDelete = () => {
-        console.log('apagado')
+        console.log(props.cardId)
     }
     
  
@@ -140,7 +140,7 @@ const DeleteModal = (props) => {
                     fontFamily='Poppins'
                     fontWeight='700'
                     marginTop='20px'
-                    onClick={() => console.log('apagado')}
+                    onClick={confirmDelete}
                     ><b>Excluir</b></Button>
 
 

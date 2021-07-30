@@ -3,6 +3,7 @@ import { Modal, ModalContent, ModalOverlay,
      ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text,
     FormControl, FormLabel, Input, Box} from '@chakra-ui/react'
 import BackgroundModal from '../../../assets/Background modal.svg'
+import api from '../../../services/api'
 
 
 

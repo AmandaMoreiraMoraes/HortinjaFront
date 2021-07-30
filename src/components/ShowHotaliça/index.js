@@ -1,11 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Flex, IconButton, Text, Button, Image, Divider, Box} from '@chakra-ui/react' 
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import BackgroundButton from '../../assets/Background card.svg'   
+import ShowModal from '../../pages/Home/ShowModal'
     
     
     
     const ShowHortaliça = (props) => {
+
+        const handleOpenShowModal = (id) => {
+            setSelectedCard(id)
+            setShowModal(true)
+        }
+
+        const [showModal, setShowModal] = useState(false)
+
+        const [selectedCard, setSelectedCard] = useState(null)
 
         
 
@@ -27,7 +37,7 @@ import BackgroundButton from '../../assets/Background card.svg'
                 bg='#FBFAFA'
                 position='relative'
                 flexDirection='column'
-                onClick={() => console.log('Show hortaliça')}
+                onClick={() => handleOpenShowModal(true)}
                 >
                 
 
@@ -162,6 +172,13 @@ import BackgroundButton from '../../assets/Background card.svg'
 
 
         </Flex>
+
+        <ShowModal
+        isOpen={showModal}
+        onClose={() => {
+            setSelectedCard(null)
+            setShowModal(false)
+        }}/>
 
         
 

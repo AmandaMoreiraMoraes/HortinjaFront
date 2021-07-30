@@ -15,7 +15,9 @@ import { Category } from '../../components'
 import { ShowHortaliça } from '../../components'
 import HorticulturalModal from './HorticulturalModal'
 import DeleteModal from './DeleteModal'
+import ShowModal from './ShowModal'
 import api from '../../services/api'
+import EditModal from './EditModal'
 
 
 
@@ -33,6 +35,7 @@ export const Home = () => {
 
     const [deleteModal, setDeleteModal] = useState(false)
 
+
     const [selectedCard, setSelectedCard] = useState(null)
 
     const handleOpenDeleteModal = (id) => {
@@ -44,6 +47,10 @@ export const Home = () => {
         setSelectedCard(id)
         setHorticulturalModal(true)
     }
+
+    
+
+  
 
 
     const [showHortaliças, setShowHortaliças] = useState([])
@@ -138,24 +145,26 @@ export const Home = () => {
                     fontFamily='poppins'
                     fontWeight='400'
                     fontSize='18px'
+                    placeholder='Selecionar Categoria'
                     
                     
                     ></Select>
                     
                 
-                    <Select
+                    <Input
                     bg='#D9D2CF'
                     borderRadius='100px'
                     height='56px'
-                    paddingLeft='16px'
-                    paddingY='12px'
+                    marginLeft='16px'
+                    marginTop='12px'
                     fontFamily='poppins'
                     fontWeight='400'
                     fontSize='18px'
                     marginRight='10%'
+                    placeholder='Buscar Hortaliça'
                     >
 
-                    </Select>
+                    </Input>
                 
                 
                 </Flex>  
@@ -349,55 +358,98 @@ export const Home = () => {
                 
                 
                 >
-
-
-                {categories.map(category =>{
-
-                    return(
-                        
-                    <Category
-                    name={category?.name}
                     
+                        {loading ? (
+
+                        <Flex
+                        justifyContent='center'
+                        alignItems='center'
+                        color='green'>
+                            <Spinner/>
+
+                        </Flex>
+                        ) : (
+
+                            <Flex>
+
+                                {categories.map(category =>{
+
+                                return(
+                                    
+                                <Category
+                                name={category?.name}
+
+
+                                >
+
+
+
+                                </Category>
+                                )
+
+
+                                }
+
+                                )}
+
+
+                            </Flex>
+
+                        )}
                     
-                    >
 
 
-
-                    </Category>
-                    )
-
-                    
-                }
-        
-            )}
+               
 
                 <Flex
+                flexDirection='column'
+                
                 
                 >
+                    {loading ? (
+                        <Flex
+                        justifyContent='center'
+                        alignItems='center'
+                        marginTop='100px'>
+
+                            <Spinner
+                            color='green'/>
 
 
-                    {showHortaliças.map(showHortaliça =>{
 
-                    return(
-                        
-                    <ShowHortaliça
-                    id={showHortaliça?._id}
-                    name={showHortaliça?.name}
-                    shade={showHortaliça?.shade}
-                    description={showHortaliça?.description}
-                    measurement={showHortaliça?.measurement}
-                    averagePrice={showHortaliça?.averagePrice}
-                    image={showHortaliça?.image}
-                    categoryId={showHortaliça?.categoryId}
-                    openDeleteModal={()=> handleOpenDeleteModal(showHortaliça?._id)}
-                    openEditModal={() => handleOpenEditModal(showHortaliça?._id)}
-                    />
-                    )
+                        </Flex>
+                    ) : (
+                        <Flex>
+                            {showHortaliças.map(showHortaliça =>{
+
+                                return(
+                                    
+                                <ShowHortaliça
+                                id={showHortaliça?._id}
+                                name={showHortaliça?.name}
+                                shade={showHortaliça?.shade}
+                                description={showHortaliça?.description}
+                                measurement={showHortaliça?.measurement}
+                                averagePrice={showHortaliça?.averagePrice}
+                                image={showHortaliça?.image}
+                                categoryId={showHortaliça?.categoryId}
+                                openDeleteModal={()=> handleOpenDeleteModal(showHortaliça?._id)}
+                                openEditModal={() => handleOpenEditModal(showHortaliça?._id)}
+                                />
+                                )
 
 
-                    }
+                                }
 
+                                )}
+
+
+
+                        </Flex>
                     )}
+
+
+                  
 
                     </Flex>
 
@@ -473,6 +525,8 @@ export const Home = () => {
         cardId={selectedCard}
         
         />
+
+        
         
         </>
                 

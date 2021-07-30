@@ -95,6 +95,8 @@ import ShowModal from '../../pages/Home/ShowModal'
                                 <Flex
                                 position='absolute'
                                 flexDirection='column'
+                                justifyContent='center'
+                                alignItems='center'
                                 paddingTop='40px'
                                 fontFamily='Poppins'
                                 
@@ -110,7 +112,8 @@ import ShowModal from '../../pages/Home/ShowModal'
                                          
                                     <Text
                                     paddingX='15px'
-                                    isTruncated
+                                    alignItems='center'
+                                    justifyContent='center'
                                     maxWidth='340px'
                                     display='block'
                                     flexWrap='wrap'

@@ -1,7 +1,7 @@
 import React, {useState, useEffect}from 'react'
 import { Modal, ModalContent, ModalOverlay,
      ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text,
-    FormControl, FormLabel, Input, Box} from '@chakra-ui/react'
+    FormControl, FormLabel, Input, Box, Spinner, useFormControlProps, useAccordion} from '@chakra-ui/react'
 import BackgroundModal from '../../../assets/Background modal.svg'
 import api from '../../../services/api'
 
@@ -10,12 +10,32 @@ import api from '../../../services/api'
 const CategoryModal = (props) => {
 
     const [name, setName] = useState('')
+    const [categoryId, setCategoryId] = useState('')
 
     
     const handleSubmit = (e) => {
 
         e.preventDefault()
         setLoading(true)
+
+        if (props.categoryId){
+
+            api.patch(`/category/${categoryId}`,{
+                name
+            })
+            
+            .then(() => {
+                props.loadCategory()
+            })
+            .catch(err => {
+                console.log(err)
+
+
+            })
+            .finally(() => closeModal())
+
+        }else{
+        
         api.post('/category', {
             name
         })
@@ -30,7 +50,7 @@ const CategoryModal = (props) => {
         })
         .finally(() => closeModal())
 
-    }
+    }}
 
     const cleanFields = () => {
         setName = ('')
@@ -43,6 +63,35 @@ const CategoryModal = (props) => {
     }
 
     const [loading, setLoading] = useState(false)
+
+    const [loadingData, setLoadingData] = useState(false)
+
+    useEffect(() => {
+        if (!props.categoryId) {
+
+            
+
+        }
+    }, [props.categoryId])
+
+    useEffect(() => {
+
+        if (props.categoryId) {
+            setLoadingData(true)
+            const loadCategory = async () => {
+                const responseCategory = await api.get(`/category/${props.categoryId}`)
+                setName(responseCategory?.data?.categoryId)
+            }
+
+            loadCategory()
+            .finally(() => {
+                setLoadingData(false)
+            })
+        }
+
+
+        
+    }, [props.categoryId])
 
    
 
@@ -119,21 +168,31 @@ const CategoryModal = (props) => {
 
 
                 <ModalBody>
+                    {loadingData ? (
+                        <Flex
+                        justifyContent='center'
+                        alignItems='center'>
+                            <Spinner
+                            color='green'/>
+                        </Flex>
+                    ) : (
+                        <FormControl>
+                        <Input
+                        placeholder='Categoria, ex: Verduras'
+                        id='name'
+                        name='name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        bg='#D9D2CF'
+                        borderRadius='100px'
+                        color='#757270'
+                        width='350px'
+                        height='56px'
+                        marginLeft='12px'/>
+                      </FormControl>
+                    )}
 
-                    <FormControl>
-                      <Input
-                      placeholder='Categoria, ex: Verduras'
-                      id='name'
-                      name='name'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      bg='#D9D2CF'
-                      borderRadius='100px'
-                      color='#757270'
-                      width='350px'
-                      height='56px'
-                      marginLeft='12px'/>
-                    </FormControl>
+               
 
 
                 </ModalBody>

@@ -4,14 +4,32 @@ import { Modal, ModalContent, ModalOverlay,
     FormControl, FormLabel, Input, Box} from '@chakra-ui/react'
 import BackgroundModal from '../../../assets/Background modal.svg'
 import {WarningIcon} from '@chakra-ui/icons'
+import api from '../../../services/api'
 
 
 
 const DeleteModal = (props) => {
 
     const confirmDelete = () => {
-        console.log(props.cardId)
-    }
+        setLoading(true)
+
+        api.delete(`/horticultural/${props.cardId}`)
+            .then(() => {
+                props.loadHortaliça()
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            .finally(() => {
+                setLoading(false)
+                props.onClose()
+            })
+        }
+
+    
+
+    const [loading, setLoading] = useState(false)
     
  
 
@@ -141,6 +159,7 @@ const DeleteModal = (props) => {
                     fontWeight='700'
                     marginTop='20px'
                     onClick={confirmDelete}
+                    isLoading={loading}
                     ><b>Excluir</b></Button>
 
 

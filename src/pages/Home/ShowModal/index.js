@@ -1,8 +1,9 @@
-import React, {useState}from 'react'
+import React, {useEffect, useState}from 'react'
 import { Modal, ModalContent, ModalOverlay,
      ModalHeader, ModalCloseButton, Button, ModalFooter, ModalBody, Image, Flex, Text,
     FormControl, FormLabel, Input, Box, Select, Textarea} from '@chakra-ui/react'
 import BackgroundModal from '../../../assets/Background modal.svg'
+import api from '../../../services/api'
 
 
 
@@ -23,6 +24,9 @@ const ShowModal = (props) => {
     const [benefits, setBenefits] = useState('')
 
     const [category, setCategory] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const [loadingData, setLoadingData] = useState(false)
 
     
 
@@ -31,14 +35,39 @@ const ShowModal = (props) => {
     const handleSubmit = (e) => {
 
         e.preventDefault()
+        setLoading(true)
 
-    }
+    
 
-    if (props.cardId){
+        if (props.cardId){
 
-    }else{
+        }else{
 
-    }
+        }
+      }
+      useEffect(() => {
+
+        if (props.cardId){
+          setLoadingData(true)
+          const loadHortaliça = async () => {
+            const responseHortaliça = await api.get(`/horticultural/${props.cardId}`)
+
+            setImage(responseHortaliça?.data?.image)
+            setCategory(responseHortaliça?.data?.category)
+            setMeasurement(responseHortaliça?.data?.measurement)
+            setAveragePrice(responseHortaliça?.data?.averagePrice)
+            setBenefits(responseHortaliça?.data?.benefits)
+            setName(responseHortaliça?.data?.name)
+            setShade(responseHortaliça?.data?.shade)
+            setDescription(responseHortaliça?.data?.description)
+          }
+          loadHortaliça()
+            .finally(() => {
+              setLoadingData(false)
+            })
+        }
+
+      },[props.cardId])
 
     return(
 

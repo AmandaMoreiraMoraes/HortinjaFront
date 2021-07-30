@@ -10,6 +10,7 @@ import api from '../../../services/api'
 const EditModal = (props) => {
 
     const [name, setName] = useState('')
+
     
     const handleSubmit = (e) => {
 

@@ -121,6 +121,8 @@ export const Home = () => {
 
     }, [])
 
+ 
+
    
     return (
 
@@ -545,6 +547,7 @@ export const Home = () => {
         onClose={() => {setHorticulturalModal(false)
         setSelectedCard(null)}}
         cardId={selectedCard}
+        loadHorticultural = {loadHortaliça}
         />
 
         <DeleteModal
@@ -553,6 +556,7 @@ export const Home = () => {
             {setDeleteModal(false)
             setSelectedCard(null)                     }}
         cardId={selectedCard}
+        loadHorticultural={loadHortaliça}
         
         />
 
